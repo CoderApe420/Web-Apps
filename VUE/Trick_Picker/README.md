@@ -1,5 +1,11 @@
 # trick_pick
 
+## Run server
+```
+cd .\Server\
+npm start
+```
+
 ## Project setup
 ```
 npm install
