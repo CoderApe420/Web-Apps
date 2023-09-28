@@ -42,11 +42,11 @@ export default {
       fetch(this.hostname + "getalltypes")
           .then((response) => response.json())
           .then((json) => {
-            for (let i = 0; i < json.message.length; i++) {
+            for (let i = 0; i < json.types.length; i++) {
               var typeSelection = document.getElementById("type");
               var type = document.createElement("option");
 
-              type.text = json.message[i];
+              type.text = json.types[i];
               typeSelection.add(type);
             }
           });
@@ -65,8 +65,8 @@ export default {
       fetch(this.hostname + "skate_tricks_by_type/" + type)
           .then((response) => response.json())
           .then((json) => {
-            var trickNumber = Math.floor(Math.random() * json.message.length);
-            this.trick = json.message[trickNumber].trick_name;
+            var trickNumber = Math.floor(Math.random() * json.tricks.length);
+            this.trick = json.tricks[trickNumber].trick_name;
           });
     },
 

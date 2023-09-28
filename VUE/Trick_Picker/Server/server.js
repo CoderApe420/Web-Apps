@@ -33,21 +33,21 @@ app.get("/getalltypes", (req, res) => {
             i++;
         } while (i < result.length);
 
-        res.json({ message: alltypes });
+        res.json({ types: alltypes });
     });
 });
 
 app.get("/tricks_in_progress/", (req, res) => {
     con.query("SELECT * FROM tricks_in_progress JOIN skate_tricks st on tricks_in_progress.trick_id = st.trick_id" , function (err, result) {
         if (err) throw err;
-        res.json({ message: result });
+        res.json({ tricks: result });
     });
 });
 
 app.get("/completed_tricks/", (req, res) => {
     con.query("SELECT * FROM completed_tricks JOIN skate_tricks st on completed_tricks.trick_id = st.trick_id" , function (err, result) {
         if (err) throw err;
-        res.json({ message: result });
+        res.json({ tricks: result });
     });
 });
 
@@ -56,7 +56,7 @@ app.get("/skate_trick/:id", (req, res) => {
 
     con.query("SELECT trick_name, trick_type FROM skate_tricks" , function (err, result) {
         if (err) throw err;
-        res.json({ message: result[id] });
+        res.send(result[id]);
     });
 });
 
@@ -65,7 +65,7 @@ app.get("/skate_tricks_by_type/:type", (req, res) => {
 
     con.query("SELECT trick_name, trick_type FROM skate_tricks WHERE trick_type = '" + type + "'", function (err, result) {
         if (err) throw err;
-        res.json({ message: result });
+        res.json({ tricks: result });
     });
 });
 
