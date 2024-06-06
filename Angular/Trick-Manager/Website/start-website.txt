@@ -1,0 +1,6 @@
+Start the Website
+
+To start the Website you need to navigate in to the following directory with the command: `cd Trick-Manager/Website`.
+
+In this directory just run the `npm install` command to get the node_modules after the installation 
+is done run the `npm start` command in the same directory to start the website.

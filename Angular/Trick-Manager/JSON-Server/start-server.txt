@@ -1,0 +1,6 @@
+Start the JSON-Server
+
+To start the server you must install the json-server in the following directory: "Trick-Manager/JSON-Server" 
+with the command `npm install json-server`.
+
+Once its installed you can run the server in the same directory using the `npx json-server .\skate_tricks.json` command.

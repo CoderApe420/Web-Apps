@@ -1,0 +1,33 @@
+<div id="container">
+  <div id="button" (click)="isDropdownActive = true">
+
+    {{ selectedType || "Select a trick type"}}
+
+    <div id="dropdown" [ngClass]="{ active: isDropdownActive }">
+
+      <ul>
+        <li *ngFor="let type of trick_types">
+          <a (click)="selectedType = type.type; isDropdownActive = false; $event.stopImmediatePropagation(); getAllTricksOfType()">{{ type.type }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <ul style="text-align: center">
+
+    @if(page == 'generator' && selectedType != ''){
+      <li><h3>{{randomTrick}}</h3></li>
+
+      <button id="generateButton" (click)="getAllTricksOfType()"><strong>Generate Trick</strong></button>
+
+    } @else if(page == 'overview'){
+      @for(trick of allTricksOfType; track trick.trick_id){
+        <li><h3>{{ trick }}</h3></li>
+      }
+    }
+
+  </ul>
+</div>

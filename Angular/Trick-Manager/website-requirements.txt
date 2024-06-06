@@ -1,0 +1,1 @@
+The only software requirement is node.js the installation is easy and it can be downloaded on "https://nodejs.org/en/download"
